@@ -2,8 +2,19 @@ box: wercker/default
 build:
   steps:
     - script:
-        name: check files under /proc
+        name: show mounts
         code: |
           mount
-          ls /proc
-          ls /sys/block
+
+    - script:
+        name: check files under /proc
+        code: |
+          ls -l /proc
+          cat /proc/stat
+          cat /proc/diskstats
+          cat /proc/mdstat
+
+    - script:
+        name: check files under /sys/block
+        code: |
+          ls -l /sys/block
