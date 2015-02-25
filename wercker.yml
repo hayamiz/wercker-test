@@ -1,0 +1,9 @@
+box: wercker/default
+build:
+  steps:
+    - script:
+        name: check files under /proc
+        code: |
+          mount
+          ls /proc
+          ls /sys/block
